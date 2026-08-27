@@ -2,4 +2,4 @@
 
 What each item's work learned, in the order it was worked.
 
-_No entries yet._
+- #2: Added `src/index.ts` with the optional `ProbeReport` sections, section report aliases, detector contracts, and an async `probe()` that currently returns `{}`. Added a public empty-directory test in `src/index.test.ts`. `pnpm test` and `pnpm typecheck` pass. No unresolved issues.

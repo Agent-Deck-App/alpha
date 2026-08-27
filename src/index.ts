@@ -105,6 +105,14 @@ export type {
   SkillsDirectoryName,
   SkillsReport,
 } from "./detect/skills.js";
+export { detectRules } from "./detect/rules.js";
+export type {
+  CopilotInstructionReport,
+  CursorRuleReport,
+  MalformedRuleReport,
+  RuleReport,
+  RulesReport,
+} from "./detect/rules.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

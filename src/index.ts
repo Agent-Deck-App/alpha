@@ -31,6 +31,8 @@ export type {
   ToolVersionsFileName,
   ToolVersionsReport,
 } from "./detect/tool-versions.js";
+export { detectMise, MiseTomlSyntaxError } from "./detect/mise.js";
+export type { MiseFileName, MiseReport } from "./detect/mise.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

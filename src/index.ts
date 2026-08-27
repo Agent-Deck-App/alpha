@@ -85,6 +85,8 @@ export type {
   GitHubActionsWorkflowFileName,
   GitHubActionsWorkflowReport,
 } from "./detect/github-actions.js";
+export { detectTurbo } from "./detect/turbo.js";
+export type { TurboFileName, TurboReport, TurboTaskReport } from "./detect/turbo.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

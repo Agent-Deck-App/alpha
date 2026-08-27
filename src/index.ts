@@ -1,7 +1,9 @@
+import type { WorkspaceReport as WorkspaceLayoutReport } from "./detect/workspace.js";
+
 export type ToolchainReport = Record<string, unknown>;
 export type PackageManagerReport = Record<string, unknown>;
 export type CommandsReport = Record<string, unknown>;
-export type WorkspaceReport = Record<string, unknown>;
+export type WorkspaceReport = WorkspaceLayoutReport;
 export type InstructionsReport = Record<string, unknown>;
 
 export interface ProbeReport {
@@ -87,6 +89,12 @@ export type {
 } from "./detect/github-actions.js";
 export { detectTurbo } from "./detect/turbo.js";
 export type { TurboFileName, TurboReport, TurboTaskReport } from "./detect/turbo.js";
+export { detectWorkspace } from "./detect/workspace.js";
+export type {
+  WorkspaceFileName,
+  WorkspaceKind,
+  WorkspacePackageReport,
+} from "./detect/workspace.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

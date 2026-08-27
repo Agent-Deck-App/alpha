@@ -75,6 +75,16 @@ export type {
 } from "./detect/python-package-manager.js";
 export { detectDevContainer } from "./detect/devcontainer.js";
 export type { DevContainerFileName, DevContainerReport } from "./detect/devcontainer.js";
+export { detectGitHubActions, GitHubActionsYamlSyntaxError } from "./detect/github-actions.js";
+export type {
+  GitHubActionsDirectoryName,
+  GitHubActionsReport,
+  GitHubActionsRunStepReport,
+  GitHubActionsStepReport,
+  GitHubActionsUnavailableRequirement,
+  GitHubActionsWorkflowFileName,
+  GitHubActionsWorkflowReport,
+} from "./detect/github-actions.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

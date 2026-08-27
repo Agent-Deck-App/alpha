@@ -46,6 +46,13 @@ export type {
   GoModReport,
   GoToolchainDirectiveReport,
 } from "./detect/go-mod.js";
+export { detectPackageJson } from "./detect/package-json.js";
+export type {
+  PackageJsonEnginesReport,
+  PackageJsonFileName,
+  PackageJsonReport,
+  PackageManagerVersionReport,
+} from "./detect/package-json.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

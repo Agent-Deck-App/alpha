@@ -17,6 +17,18 @@ most honest description of how a project is really tested.
 
 Early. The plan is [issue #1](https://github.com/Agent-Deck-App/alpha/issues/1).
 
+## CLI
+
+Build the package, then inspect the current repository (or pass a path):
+
+```bash
+pnpm build
+node dist/cli.js [--json] [path]
+```
+
+`--json` prints the raw report. Without it, the command prints a readable summary
+and exits with status 1 when no repository signals are found.
+
 ## Development
 
 ```bash

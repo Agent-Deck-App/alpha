@@ -53,6 +53,12 @@ export type {
   PackageJsonReport,
   PackageManagerVersionReport,
 } from "./detect/package-json.js";
+export { detectPackageManager } from "./detect/package-manager.js";
+export type {
+  PackageManagerLockfileName,
+  PackageManagerLockfileReport,
+  PackageManagerName,
+} from "./detect/package-manager.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

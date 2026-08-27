@@ -95,6 +95,16 @@ export type {
   WorkspaceKind,
   WorkspacePackageReport,
 } from "./detect/workspace.js";
+export { detectClaudeSkills, detectSkills } from "./detect/skills.js";
+export type {
+  ClaudeSkillReport,
+  ClaudeSkillsDirectoryName,
+  ClaudeSkillsReport,
+  MalformedSkillReport,
+  SkillReport,
+  SkillsDirectoryName,
+  SkillsReport,
+} from "./detect/skills.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

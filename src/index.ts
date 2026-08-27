@@ -59,6 +59,12 @@ export type {
   PackageManagerLockfileReport,
   PackageManagerName,
 } from "./detect/package-manager.js";
+export { detectPackageScripts } from "./detect/package-scripts.js";
+export type {
+  PackageScriptName,
+  PackageScriptsFileName,
+  PackageScriptsReport,
+} from "./detect/package-scripts.js";
 export { detectPythonPackageManager } from "./detect/python-package-manager.js";
 export type {
   PythonPackageManagerLockfileName,

@@ -59,6 +59,12 @@ export type {
   PackageManagerLockfileReport,
   PackageManagerName,
 } from "./detect/package-manager.js";
+export { detectPythonPackageManager } from "./detect/python-package-manager.js";
+export type {
+  PythonPackageManagerLockfileName,
+  PythonPackageManagerName,
+  PythonPackageManagerReport,
+} from "./detect/python-package-manager.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

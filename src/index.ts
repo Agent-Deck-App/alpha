@@ -26,6 +26,11 @@ export type {
   NodeVersionFileReport,
   NodeVersionReport,
 } from "./detect/node.js";
+export { detectToolVersions } from "./detect/tool-versions.js";
+export type {
+  ToolVersionsFileName,
+  ToolVersionsReport,
+} from "./detect/tool-versions.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

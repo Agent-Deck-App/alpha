@@ -20,6 +20,13 @@ export type CommandsDetector = Detector<CommandsReport>;
 export type WorkspaceDetector = Detector<WorkspaceReport>;
 export type InstructionsDetector = Detector<InstructionsReport>;
 
+export { detectNodeVersion } from "./detect/node.js";
+export type {
+  NodeVersionFileName,
+  NodeVersionFileReport,
+  NodeVersionReport,
+} from "./detect/node.js";
+
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};
 }

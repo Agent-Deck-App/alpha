@@ -59,6 +59,8 @@ export type {
   PackageManagerLockfileReport,
   PackageManagerName,
 } from "./detect/package-manager.js";
+export { detectMakefile } from "./detect/makefile.js";
+export type { MakefileFileName, MakefileReport, MakeTargetName } from "./detect/makefile.js";
 export { detectPackageScripts } from "./detect/package-scripts.js";
 export type {
   PackageScriptName,

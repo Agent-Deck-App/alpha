@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { parseVersionFile } from "./version-file.js";
 
 export type NodeVersionFileName = ".nvmrc" | ".node-version";
 
@@ -17,10 +18,7 @@ export interface NodeVersionReport extends Record<string, unknown> {
 const nodeVersionPattern = /^(?:v?\d+(?:\.\d+){0,2}(?:-[0-9A-Za-z.-]+)?|lts\/(?:\*|[A-Za-z0-9][A-Za-z0-9._-]*)|node|stable|system|iojs)$/;
 
 function parseNodeVersion(contents: string): string | null {
-  const values = contents
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => line !== "" && !line.startsWith("#"));
+  const values = parseVersionFile(contents);
   const value = values.length === 1 ? values[0] : undefined;
 
   return value !== undefined && nodeVersionPattern.test(value) ? value : null;

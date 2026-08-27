@@ -33,6 +33,12 @@ export type {
 } from "./detect/tool-versions.js";
 export { detectMise, MiseTomlSyntaxError } from "./detect/mise.js";
 export type { MiseFileName, MiseReport } from "./detect/mise.js";
+export { detectPythonRubyVersions } from "./detect/python-ruby.js";
+export type {
+  PythonRubyVersionFileName,
+  PythonRubyVersionFileReport,
+  PythonRubyVersionReport,
+} from "./detect/python-ruby.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

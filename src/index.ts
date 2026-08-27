@@ -113,6 +113,8 @@ export type {
   RuleReport,
   RulesReport,
 } from "./detect/rules.js";
+export { detectContext } from "./detect/context.js";
+export type { ContextFileName, ContextFileReport, ContextReport } from "./detect/context.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

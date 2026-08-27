@@ -65,6 +65,8 @@ export type {
   PythonPackageManagerName,
   PythonPackageManagerReport,
 } from "./detect/python-package-manager.js";
+export { detectDevContainer } from "./detect/devcontainer.js";
+export type { DevContainerFileName, DevContainerReport } from "./detect/devcontainer.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

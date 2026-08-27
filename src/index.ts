@@ -39,6 +39,13 @@ export type {
   PythonRubyVersionFileReport,
   PythonRubyVersionReport,
 } from "./detect/python-ruby.js";
+export { detectGoMod } from "./detect/go-mod.js";
+export type {
+  GoModDirectiveReport,
+  GoModFileName,
+  GoModReport,
+  GoToolchainDirectiveReport,
+} from "./detect/go-mod.js";
 
 export async function probe(_root: string): Promise<ProbeReport> {
   return {};

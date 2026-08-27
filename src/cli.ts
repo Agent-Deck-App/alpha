@@ -148,6 +148,14 @@ function installCommandLines(section: ReportRecord | undefined): string[] {
     }
   }
 
+  const rustRuby = asRecord(section?.rustRuby);
+  for (const name of ["cargo", "ruby"]) {
+    const command = stringValue(asRecord(rustRuby?.[name])?.installCommand);
+    if (command !== undefined && !commands.some((item) => item.command === command)) {
+      commands.push({ name, command });
+    }
+  }
+
   if (commands.length === 0) {
     return ["Install command: (none detected)"];
   }
@@ -157,7 +165,10 @@ function installCommandLines(section: ReportRecord | undefined): string[] {
   );
 }
 
-function testCommand(section: ReportRecord | undefined): string | undefined {
+function testCommand(
+  section: ReportRecord | undefined,
+  packageManager: ReportRecord | undefined,
+): string | undefined {
   const resolved = stringValue(asRecord(section?.resolved)?.test);
   if (resolved !== undefined) {
     return resolved;
@@ -170,7 +181,8 @@ function testCommand(section: ReportRecord | undefined): string | undefined {
     }
   }
 
-  return undefined;
+  const cargo = asRecord(asRecord(packageManager?.rustRuby)?.cargo);
+  return stringValue(cargo?.testCommand) ?? stringValue(cargo?.test);
 }
 
 function workspacePackageLines(section: ReportRecord | undefined): string[] {
@@ -261,11 +273,12 @@ function conflictLines(report: ProbeReport): string[] {
 }
 
 export function formatSummary(report: ProbeReport): string {
+  const packageManager = asRecord(report.packageManager);
   const lines = [
     "Toolchain:",
     ...toolchainLines(asRecord(report.toolchain)),
-    ...installCommandLines(asRecord(report.packageManager)),
-    `Test command: ${testCommand(asRecord(report.commands)) ?? "(none detected)"}`,
+    ...installCommandLines(packageManager),
+    `Test command: ${testCommand(asRecord(report.commands), packageManager) ?? "(none detected)"}`,
     "Workspace packages:",
     ...workspacePackageLines(asRecord(report.workspace)),
     "Instruction files:",

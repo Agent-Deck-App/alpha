@@ -49,6 +49,22 @@ describe("formatSummary", () => {
       ].join("\n"),
     );
   });
+
+  it("shows Rust and Ruby provisioning commands", async () => {
+    await expect(
+      withRepo(
+        {
+          "Cargo.toml": "[workspace]\n",
+          Gemfile: "source \"https://rubygems.org\"\n",
+        },
+        async (root) => formatSummary(await probe(root)),
+      ),
+    ).resolves.toContain(
+      ["Install command: cargo build", "Install command (ruby): bundle install", "Test command: cargo test"].join(
+        "\n",
+      ),
+    );
+  });
 });
 
 describe("runCli", () => {

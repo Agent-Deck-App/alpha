@@ -10,6 +10,7 @@ import { detectPackageManager } from "./detect/package-manager.js";
 import { detectPackageScripts } from "./detect/package-scripts.js";
 import { detectPythonPackageManager } from "./detect/python-package-manager.js";
 import { detectPythonRubyVersions } from "./detect/python-ruby.js";
+import { detectRustRubyProjects } from "./detect/rust-ruby.js";
 import { detectRules } from "./detect/rules.js";
 import { detectSkills } from "./detect/skills.js";
 import { detectToolVersions } from "./detect/tool-versions.js";
@@ -108,6 +109,16 @@ export type {
   PythonPackageManagerName,
   PythonPackageManagerReport,
 } from "./detect/python-package-manager.js";
+export { detectRustRubyProjects } from "./detect/rust-ruby.js";
+export type {
+  CargoFileName,
+  CargoProjectReport,
+  RubyProjectFileName,
+  RubyProjectReport,
+  RustProjectReport,
+  RustRubyProjectReport,
+  RustRubyReport,
+} from "./detect/rust-ruby.js";
 export { detectDevContainer } from "./detect/devcontainer.js";
 export type { DevContainerFileName, DevContainerReport } from "./detect/devcontainer.js";
 export { detectGitHubActions, GitHubActionsYamlSyntaxError } from "./detect/github-actions.js";
@@ -166,6 +177,7 @@ const detectorEntries: readonly DetectorEntry[] = [
   { section: "packageManager", name: "packageJson", detect: detectPackageJson },
   { section: "packageManager", name: "javascript", detect: detectPackageManager },
   { section: "packageManager", name: "python", detect: detectPythonPackageManager },
+  { section: "packageManager", name: "rustRuby", detect: detectRustRubyProjects },
   { section: "commands", name: "packageScripts", detect: detectPackageScripts },
   { section: "commands", name: "makefile", detect: detectMakefile },
   { section: "commands", name: "githubActions", detect: detectGitHubActions },
